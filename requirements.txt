@@ -1,0 +1,21 @@
+# Google Cloud access
+google-cloud-bigquery>=3.25
+google-cloud-bigquery-storage>=2.25
+pandas-gbq>=0.23
+pydata-google-auth>=1.8
+db-dtypes>=1.2
+
+# Analysis and statistics
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+statsmodels>=0.14
+scikit-learn>=1.5
+lifelines>=0.29
+
+# Charts and notebooks
+matplotlib>=3.8
+seaborn>=0.13.2
+jupyter
+ipykernel
+pyarrow>=15.0

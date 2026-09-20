@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Exported data: keep the repo small, everything is reproducible from BigQuery
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/retention_summary.csv
+!data/processed/model_comparison.csv
+
+# Credentials: NEVER commit these
+*.json
+.config/
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
