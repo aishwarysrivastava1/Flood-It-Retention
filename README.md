@@ -450,26 +450,3 @@ flood-it-retention/
 | **Suggested GitHub topics** | `bigquery` · `game-analytics` · `retention-analysis` · `churn-prediction` · `survival-analysis` · `cohort-analysis` · `sql` · `python` · `data-science` |
 | **Credentials** | None are stored anywhere. Authentication uses `pydata_google_auth` browser sign-in, and `.gitignore` blocks `*.json` as a safety net |
 
----
-
-## 11 · Project status
-
-| Component | Status |
-|---|---|
-| SQL data layer (19 files, 12 views) | ✅ built and verified |
-| 14 data-layer invariants | ✅ passing |
-| Notebooks 01–07 | ✅ executed end to end, outputs saved |
-| 22 charts | ✅ generated from the live dataset |
-| Offline test harness | ✅ 15/15 checks |
-| Decision memo | ✅ written from the real results |
-
----
-
-## 12 · How AI tools were used
-
-I used Claude (Claude Code) to explain nested BigQuery syntax, review wording, debug environment and
-authentication problems, and to build the offline test harness in `tests/`. Every analytical decision,
-every definition and the memo's conclusions are mine. No number in this repository is quoted from a model:
-each is produced by a notebook cell whose output is committed, and the key ones are verified twice — SQL
-against an independent pandas re-implementation, plus structural invariants such as day-0 cohort retention
-being exactly 100% and the dummy classifier scoring exactly 0.500.
