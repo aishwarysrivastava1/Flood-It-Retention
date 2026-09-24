@@ -14,7 +14,7 @@ WITH day0_events AS (
     COUNTIF(e.event_name = 'spend_virtual_currency')       AS d0_currency_spends,
     COUNTIF(e.event_name = 'ad_reward')                    AS d0_ad_rewards,
     COUNTIF(e.event_name = 'challenge_a_friend')           AS d0_friend_challenges,
-    COUNTIF(e.event_name = 'completed_5_levels')           AS d0_completed_5_levels,
+    COUNTIF(e.event_name = 'completed_5_levels')           AS d0_completed_5_levels,   -- model feature only: this event also fires in the non-quickplay level mode, so sql/15 and sql/16 use measured completions instead
     COUNTIF(e.event_name = 'use_extra_steps')              AS d0_extra_steps_used,
     COUNT(DISTINCT IF(e.event_name NOT IN ('os_update', 'app_update', 'app_remove', 'app_clear_data'), e.event_name, NULL)) AS d0_distinct_event_types   -- breadth of the game the player touched, ignoring automatic events
   FROM flood_it.stg_events AS e

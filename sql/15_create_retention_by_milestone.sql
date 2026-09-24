@@ -3,7 +3,7 @@
 CREATE OR REPLACE VIEW flood_it.retention_by_milestone AS
 SELECT
   CASE
-    WHEN d0_completed_5_levels > 0 THEN '4) Completed 5 levels'
+    WHEN d0_levels_completed  >= 5 THEN '4) Completed 5+ levels'   -- measured completions, not the completed_5_levels event: that event also fires in the non-quickplay level mode
     WHEN d0_levels_completed   > 0 THEN '3) Completed a level'
     WHEN d0_levels_started     > 0 THEN '2) Started a level only'
     ELSE                                '1) Engaged, no level started'

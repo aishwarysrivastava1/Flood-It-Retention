@@ -7,7 +7,7 @@ SELECT 2, 'Started a level on day 0',    COUNTIF(d0_levels_started > 0)         
 UNION ALL
 SELECT 3, 'Completed a level on day 0',  COUNTIF(d0_levels_started > 0 AND d0_levels_completed > 0)       FROM flood_it.player_features
 UNION ALL
-SELECT 4, 'Completed 5 levels on day 0', COUNTIF(d0_levels_completed > 0 AND d0_completed_5_levels > 0)   FROM flood_it.player_features
+SELECT 4, 'Completed 5+ levels on day 0', COUNTIF(d0_levels_completed >= 5)                                FROM flood_it.player_features
 UNION ALL
 SELECT 5, 'Returned on day 1',           COUNTIF(retained_d1 = 1)                                          FROM flood_it.player_features
 UNION ALL
