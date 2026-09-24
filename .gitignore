@@ -21,3 +21,7 @@ data/processed/*
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Test harness artifacts: generated, never committed (tests/ scripts rebuild them)
+tests/_simulated/
+tests/_sandbox/

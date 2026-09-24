@@ -1,0 +1,5 @@
+# Test-harness only. The analysis itself needs nothing beyond requirements.txt.
+sqlglot>=25.0      # parse sql/ as BigQuery and transpile the views to DuckDB
+duckdb>=1.0        # run the views locally, standing in for BigQuery
+nbclient>=0.10     # execute notebooks 02-07 in a fresh kernel
+nbformat>=5.10     # read and write the notebook files

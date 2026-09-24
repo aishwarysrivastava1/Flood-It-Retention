@@ -46,6 +46,12 @@ the free BigQuery sandbox.
 day-0 cohort retention exactly 100%, funnel step 1 equal to the modeling table size, and more).
 Every row must report PASS before any analysis is trusted.
 
+`tests/` runs the same proof without cloud access: a seeded event generator plants a logging outage,
+passive-only days, duplicate rows and placeholder countries; the views are transpiled to DuckDB and
+their output is compared against an independent pandas calculation; then notebooks 02-07 are executed
+in a fresh kernel. See "Verify without BigQuery" in [docs/RUNBOOK.md](docs/RUNBOOK.md). Simulated data
+proves the logic, never a finding: every number reported here comes from the live dataset.
+
 ## Key analytical decisions
 - **Leakage prevention:** features from the joining day only; label from days 1-7.
 - **Out-of-time validation:** trained on earlier cohorts, tested on later ones.

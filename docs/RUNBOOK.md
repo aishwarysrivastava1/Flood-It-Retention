@@ -21,6 +21,21 @@ The order to do things in, what each step costs, and what to commit. Follow it t
 
 **If any check fails, stop and fix it before analysing.** A failing check means a number later in the project is wrong.
 
+## Verify without BigQuery (about 2 minutes, free)
+The harness in `tests/` proves the SQL and the notebooks are correct on a simulated event log, so a
+change can be checked before spending any query allowance, and by anyone without cloud access.
+
+```bash
+pip install -r tests/requirements-test.txt   # sqlglot, duckdb, nbclient, nbformat
+python tests/make_simulated_events.py        # writes tests/_simulated/stg_events.parquet (seed 42)
+python tests/run_views_duckdb.py             # G-0 parse, views 07-17 on DuckDB, sql/18, pandas cross-checks
+python tests/run_notebooks.py                # runs notebooks 02-07 in a fresh kernel, counts the 22 charts
+```
+
+Both runners exit non-zero on failure. Everything they write lands in `tests/_simulated/` and
+`tests/_sandbox/`, which are git-ignored: **no number from the simulated data may reach the README, the
+memo or a resume.** The harness cannot check notebook 01, the only notebook that talks to BigQuery.
+
 ## Analyse (about 18 hours across several sittings)
 Run in order; each notebook reads the CSVs, so none of them costs BigQuery credit.
 
